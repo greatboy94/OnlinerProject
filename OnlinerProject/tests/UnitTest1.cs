@@ -8,14 +8,32 @@ public class Tests : Base
 {
 
     [Test]
-    public void Test1()
+    public void ValidTest()
     {
         string expectedIncrement = "за 2 товара";
+
+        HomePage homePage = new HomePage(getDriver());
+        ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52 SM-A525F/DS 6GB/128GB (черный)");
+        string val1 = productsPage.GetExpectedCost();
+        CardPage cardPage= productsPage.AddToCard();
+        string val2 = cardPage.GetActualCost();
+        Assert.AreEqual(val1, val2);
+        cardPage.ClickToIncrement();
+        Thread.Sleep(3000);
+
+    }
+    
+    [Test]
+    public void InValidTest()
+    {
+        string expectedIncrement = "за 2 товара";
+        string expCost = "200р";
         
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52 SM-A525F/DS 6GB/128GB (черный)");
         CardPage cardPage= productsPage.AddToCard();
-        //Assert.AreEqual(productsPage.GetExpectedCost(), cardPage.GetActualCost());
+        string val2 = cardPage.GetActualCost();
+        Assert.AreEqual(expCost, val2);
         cardPage.ClickToIncrement();
         Thread.Sleep(3000);
 

@@ -1,7 +1,5 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Firefox;
 using WebDriverManager.DriverConfigs.Impl;
 
 namespace OnlinerProject.utilities;
