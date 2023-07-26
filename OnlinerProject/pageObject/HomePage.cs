@@ -20,6 +20,10 @@ public class HomePage
     
     [FindsBy(How = How.XPath, Using = "//div[@class='product__title'][1]")]
     private IWebElement clickToPhone;
+    
+    [FindsBy(How = How.XPath, Using = "//li[@class='b-main-navigation__item b-main-navigation__item_arrow'][2]")]
+    private IWebElement clickToAuto;
+    
 
 
     public ProductsPage searchForPhone(string phoneName)
@@ -30,6 +34,12 @@ public class HomePage
         clickToPhone.Click();
 
         return new ProductsPage(driver);
+    }
+
+    public DetailedAutoPage ClickToAuto()
+    {
+        clickToAuto.Click();
+        return new DetailedAutoPage(driver);
     }
 
 }
