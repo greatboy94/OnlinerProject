@@ -9,6 +9,8 @@ public class AutoCheckTest : Base
     [Test]
     public void CheckAuto()
     {
+        
+         ExtentReporting.LogInfo("Starting test - getting car details");
          HomePage homePage = new HomePage(getDriver()); 
          DetailedAutoPage detailedAutoPage = homePage.ClickToAuto();
          detailedAutoPage.SelectBrand();

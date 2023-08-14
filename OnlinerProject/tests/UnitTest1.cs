@@ -10,6 +10,7 @@ public class Tests : Base
     [Test]
     public void ValidTest()
     {
+        ExtentReporting.LogInfo("Starting test - Checking for valid product");
         string expectedIncrement = "за 2 товара";
 
         HomePage homePage = new HomePage(getDriver());
@@ -26,6 +27,7 @@ public class Tests : Base
     [Test]
     public void InValidTest()
     {
+        ExtentReporting.LogInfo("Starting test - Checking for invalid product");
         string expectedIncrement = "за 2 товара";
         string expCost = "200р";
         

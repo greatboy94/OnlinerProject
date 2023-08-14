@@ -1,3 +1,4 @@
+using OnlinerProject.utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
@@ -36,6 +37,7 @@ public class CardPage
 
     public void ClickToIncrement()
     {
+        ExtentReporting.LogInfo("Click to increment button");
         incrementButton.Click();
         Actions act = new Actions(driver);
         act.MoveToElement(moveToDeleteButton).Perform();

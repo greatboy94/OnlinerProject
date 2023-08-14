@@ -1,3 +1,4 @@
+using OnlinerProject.utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
@@ -43,6 +44,7 @@ public class DetailedAutoPage
 
     public void SelectBrand()
     {
+        ExtentReporting.LogInfo("Clicking to exact car mark");
         clickToMark.Click();
         Thread.Sleep(3000);
         clickToBrand.Click();
