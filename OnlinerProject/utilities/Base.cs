@@ -1,4 +1,3 @@
-using AventStack.ExtentReports;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -9,7 +8,6 @@ namespace OnlinerProject.utilities;
 public class Base
 {
     public IWebDriver driver;
-    private ExtentReporting extReport;
 
     
     [SetUp]
@@ -62,6 +60,5 @@ public class Base
 
         return img;
     }
-
     
 }

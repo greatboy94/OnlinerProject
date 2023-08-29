@@ -39,7 +39,7 @@ public class DetailedAutoPage
     [FindsBy(How = How.CssSelector, Using = ".vehicle-form__description_chassis")]
     private IWebElement getCarChassis;
     
-    [FindsBy(How = How.CssSelector, Using = ".vehicle-form__description_premium-additional")]
+    [FindsBy(How = How.CssSelector, Using = ".vehicle-form__offers-part_title")]
     private IWebElement clickToCar;
 
     public void SelectBrand()
