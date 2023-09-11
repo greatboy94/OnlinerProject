@@ -2,7 +2,6 @@ using OnlinerProject.pageObject;
 using OnlinerProject.utilities;
 
 namespace OnlinerProject;
-
 public class AutoCheckTest : Base
 {
 

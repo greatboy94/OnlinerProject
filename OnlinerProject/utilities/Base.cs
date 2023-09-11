@@ -7,24 +7,25 @@ namespace OnlinerProject.utilities;
 
 public class Base
 {
-    public IWebDriver driver;
+    //public IWebDriver driver;
+    public ThreadLocal<IWebDriver> driver = new ThreadLocal<IWebDriver>();
 
-    
+
     [SetUp]
     public void Setup()
     {
         ExtentReporting.CreateTest(TestContext.CurrentContext.Test.MethodName);
         
         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-        driver = new ChromeDriver();
+        driver.Value = new ChromeDriver();
         
-        driver.Manage().Window.Maximize();
-        driver.Url = "https://www.onliner.by/";
+        driver.Value.Manage().Window.Maximize();
+        driver.Value.Url = "https://www.onliner.by/";
     }
 
     public IWebDriver getDriver()
     {
-        return driver;
+        return driver.Value;
     }
 
     [TearDown]
@@ -32,7 +33,7 @@ public class Base
     {
         EndTest();
         ExtentReporting.EndReporting();
-        driver.Quit();
+        driver.Value.Quit();
     }
     
     private void EndTest()
@@ -55,7 +56,7 @@ public class Base
     
     public string GetScreenshot()
     {
-        var file = ((ITakesScreenshot)driver).GetScreenshot();
+        var file = ((ITakesScreenshot)driver.Value).GetScreenshot();
         var img = file.AsBase64EncodedString;
 
         return img;

@@ -3,10 +3,9 @@ using OnlinerProject.utilities;
 using OpenQA.Selenium;
 
 namespace OnlinerProject;
-
+[Parallelizable(ParallelScope.Children)]
 public class Tests : Base
 {
-
     [Test]
     public void ValidTest()
     {
