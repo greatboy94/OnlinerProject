@@ -2,9 +2,9 @@ using OnlinerProject.pageObject;
 using OnlinerProject.utilities;
 
 namespace OnlinerProject;
+[Parallelizable(ParallelScope.Self)]
 public class AutoCheckTest : Base
 {
-
     [Test]
     public void CheckAuto()
     {

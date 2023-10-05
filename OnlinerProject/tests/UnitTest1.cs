@@ -3,7 +3,7 @@ using OnlinerProject.utilities;
 using OpenQA.Selenium;
 
 namespace OnlinerProject;
-[Parallelizable(ParallelScope.Children)]
+[Parallelizable(ParallelScope.Self)]
 public class Tests : Base
 {
     [Test]
