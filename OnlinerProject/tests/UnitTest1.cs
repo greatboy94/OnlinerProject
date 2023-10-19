@@ -2,11 +2,7 @@ using OnlinerProject.pageObject;
 using OnlinerProject.utilities;
 
 namespace OnlinerProject;
-<<<<<<< HEAD
 [Parallelizable]
-=======
-[Parallelizable(ParallelScope.Self)]
->>>>>>> 0010b055afcf412ad2ba733a493d1a26cc156acc
 public class Tests : Base
 {
     [Test]
