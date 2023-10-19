@@ -1,19 +1,19 @@
 using OnlinerProject.pageObject;
 using OnlinerProject.utilities;
-using OpenQA.Selenium;
 
 namespace OnlinerProject;
-[Parallelizable(ParallelScope.Children)]
+[Parallelizable]
 public class Tests : Base
 {
     [Test]
+    [Parallelizable]
     public void ValidTest()
     {
         ExtentReporting.LogInfo("Starting test - Checking for valid product");
         string expectedIncrement = "за 2 товара";
 
         HomePage homePage = new HomePage(getDriver());
-        ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52 SM-A525F/DS 6GB/128GB (черный)");
+        ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52");
         string val1 = productsPage.GetExpectedCost();
         CardPage cardPage= productsPage.AddToCard();
         string val2 = cardPage.GetActualCost();
@@ -24,6 +24,7 @@ public class Tests : Base
     }
     
     [Test]
+    [Parallelizable]
     public void InValidTest()
     {
         ExtentReporting.LogInfo("Starting test - Checking for invalid product");

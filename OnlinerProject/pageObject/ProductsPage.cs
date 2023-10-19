@@ -13,7 +13,7 @@ public class ProductsPage
         PageFactory.InitElements(driver, this);
     }
     
-    [FindsBy(How = How.CssSelector, Using = ".product-aside__offers-flex a:nth-child(1)")]
+    [FindsBy(How = How.XPath, Using = "//div[@class='product-aside__offers-list']/div[@class='product-aside__offers-item product-aside__offers-item_primary']//a[starts-with(@href, 'https://catalog.onliner.by/mobile/')]")]
     private IWebElement expectedCost;
     
     [FindsBy(How = How.XPath, Using = "//a[contains(text(), 'Перейти в корзину')]")]
@@ -27,7 +27,7 @@ public class ProductsPage
 
     public CardPage AddToCard()
     {
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5)); 
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); 
         wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(
             By.CssSelector(".product-aside__control a:nth-child(2)"))).Click();
         Thread.Sleep(3000);
