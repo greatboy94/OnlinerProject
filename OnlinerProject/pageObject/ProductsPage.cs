@@ -19,6 +19,9 @@ public class ProductsPage
     [FindsBy(How = How.XPath, Using = "//a[contains(text(), 'Перейти в корзину')]")]
     private IWebElement cardButton;
 
+    [FindsBy(How = How.XPath, Using = "//span[@class='button-style button-style_another button-style_base product-aside__button']")]
+    private IWebElement confirmLocation;
+
 
     public string GetExpectedCost()
     {
@@ -27,6 +30,7 @@ public class ProductsPage
 
     public CardPage AddToCard()
     {
+        confirmLocation.Click();
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); 
         wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(
             By.CssSelector(".product-aside__control a:nth-child(2)"))).Click();

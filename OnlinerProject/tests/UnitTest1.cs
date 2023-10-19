@@ -14,6 +14,7 @@ public class Tests : Base
 
         HomePage homePage = new HomePage(getDriver());
         ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52");
+        Thread.Sleep(3000);
         string val1 = productsPage.GetExpectedCost();
         CardPage cardPage= productsPage.AddToCard();
         string val2 = cardPage.GetActualCost();
@@ -32,7 +33,8 @@ public class Tests : Base
         string expCost = "200р";
         
         HomePage homePage = new HomePage(getDriver());
-        ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52 SM-A525F/DS 6GB/128GB (черный)");
+        ProductsPage productsPage= homePage.searchForPhone("Смартфон Samsung Galaxy A52");
+        Thread.Sleep(3000);
         CardPage cardPage= productsPage.AddToCard();
         string val2 = cardPage.GetActualCost();
         Assert.AreEqual(expCost, val2);
